@@ -1,11 +1,11 @@
 package com.example.assignment6
 
+import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.annotation.StringRes
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -21,13 +21,17 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.assignment6.ui.permissions.PermissionsScreen
+import com.example.assignment6.ui.start.StartScreen
 import com.example.assignment6.ui.theme.Assignment6Theme
 
 class MainActivity : ComponentActivity() {
@@ -36,8 +40,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             Assignment6Theme {
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
                 ) {
                     TreasureHuntApp()
                 }
@@ -47,10 +50,9 @@ class MainActivity : ComponentActivity() {
 }
 
 enum class TreasureHuntScreen(@StringRes val title: Int) {
-    Permission(title = R.string.permissions_page),
-    Start(title = R.string.start_page),
-    Clue(title = R.string.clue_page),
-    Solved(title = R.string.clue_solved_page),
+    Permission(title = R.string.permissions_page), Start(title = R.string.start_page), Clue(title = R.string.clue_page), Solved(
+        title = R.string.clue_solved_page
+    ),
     Complete(title = R.string.treasure_hunt_completed_page)
 }
 
@@ -64,48 +66,62 @@ fun TreasureHuntAppBar(
 ) {
     TopAppBar(title = {
         Text(
-            text = title,
-            style = MaterialTheme.typography.bodyLarge
+            text = title, style = MaterialTheme.typography.bodyLarge
         )
-    },
-        modifier = modifier.border(width = 1.dp, color = Color.Gray),
-        navigationIcon = {
-            if (canNavigateBack) {
-                IconButton(onClick = navigateUp) {
-                    Icon(
-                        imageVector = Icons.Filled.ArrowBack,
-                        contentDescription = stringResource(R.string.back_button)
-                    )
-                }
+    }, modifier = modifier.border(width = 1.dp, color = Color.Gray), navigationIcon = {
+        if (canNavigateBack) {
+            IconButton(onClick = navigateUp) {
+                Icon(
+                    imageVector = Icons.Filled.ArrowBack,
+                    contentDescription = stringResource(R.string.back_button)
+                )
             }
-        })
+        }
+    })
 }
 
 @Composable
 fun TreasureHuntApp() {
     val navController = rememberNavController()
+    val context = LocalContext.current
 
     var title = navController.currentBackStackEntryAsState().value?.destination?.route
     if (title == null) {
         title = ""
     }
 
-    Scaffold(
-        topBar = {
-            TreasureHuntAppBar(
-                title = title,
-                canNavigateBack = navController.previousBackStackEntry != null,
-                navigateUp = { navController.navigateUp() })
-        }
-    ) { innerPadding ->
+    var startDestination = TreasureHuntScreen.Start.name
+
+    if (ContextCompat.checkSelfPermission(
+            context, android.Manifest.permission.ACCESS_FINE_LOCATION
+        ) != PackageManager.PERMISSION_GRANTED
+    ) {
+        startDestination = TreasureHuntScreen.Permission.name
+    }
+
+
+    Scaffold(topBar = {
+        TreasureHuntAppBar(title = title,
+            canNavigateBack = navController.previousBackStackEntry != null,
+            navigateUp = { navController.navigateUp() })
+    }) { innerPadding ->
         NavHost(
-            navController = navController,
-            startDestination = TreasureHuntScreen.Permission.name
+            navController = navController, startDestination = startDestination
         ) {
+            composable(route = TreasureHuntScreen.Start.name) {
+                StartScreen(
+                    onStart = { navController.navigate(TreasureHuntScreen.Clue.name) }, modifier = Modifier
+                        .fillMaxSize()
+                        .padding(innerPadding)
+                )
+            }
             composable(route = TreasureHuntScreen.Permission.name) {
-                Box(modifier = Modifier.padding(innerPadding)) {
-                    Text(text = "test")
-                }
+                PermissionsScreen(
+                    onPermissionsGranted = { navController.navigate(TreasureHuntScreen.Start.name) },
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(innerPadding)
+                )
             }
         }
     }

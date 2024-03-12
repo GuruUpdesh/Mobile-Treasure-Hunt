@@ -1,9 +1,24 @@
 <resources>
-    <string name="app_name">Assignment 6</string>
+    <string name="app_name">Mobile Treasure Hunt</string>
     <string name="permissions_page">Permission Page</string>
     <string name="start_page">Start Page</string>
     <string name="clue_page">Clue Page</string>
     <string name="clue_solved_page">Clue Solved</string>
     <string name="treasure_hunt_completed_page">Treasure Hunt Completed</string>
     <string name="back_button">Navigate Back</string>
+    <string name="permission">Mobile Treasure Hunt requires location permissions to find clues and treasures.</string>
+    <string name="grant_permissions">Grant Permissions</string>
+    <string name="rules_pre">Discover hidden treasures in the real world by solving clues left by the mysterious guide.</string>
+    <string name="rule_1">1. Permission Grant: Upon starting the game, you will be prompted to grant necessary permissions. These are crucial for the app to access location services and ensure you have the best treasure hunting experience.</string>
+    <string name="rule_2">2. Start Your Adventure: After reviewing the rules, tap the Start button to begin your journey. A single clue will be presented to guide you to your first location.</string>
+    <string name="rule_3">3. Solve the Clues: Each clue leads you to a real-world location. Think critically and use the hints if you are stuck. Remember, only one clue is available at a time.</string>
+    <string name="rule_4">4. Use Hints Wisely: If a clue leaves you baffled, the Hint button offers additional information to nudge you in the right direction. Use them sparingly for an added challenge!</string>
+    <string name="rule_5">5. Check Your Progress: An animated timer on the Clue Page keeps track of how long you have been on this adventure. Can you find the treasure swiftly?</string>
+    <string name="rule_6">6. Found It? Once you believe you have reached the correct location, press the Found It! button. Your location will be checked against the clues intended destination. Accuracy is key, as GPS might vary.</string>
+    <string name="rule_7">7. On to the Next: If you have successfully found the right spot, you will be directed to a Clue Solved page, celebrating your discovery and leading you to the next clue. If not, keep exploring!</string>
+    <string name="rule_8">8. Quitting the Hunt:The Quit button will take you back to the Start Page.</string>
+    <string name="rule_9">9. Claim Your Treasure: Solve all clues to uncover the treasure. The final page will congratulate you on your accomplishment and reveal the total time taken on your adventure.</string>
+    <string name="rule_10">10. Play Fair and Have Fun: This is a game of exploration and discovery. Enjoy the journey, learn about each location, and most importantly, have fun!</string>
+
+    <string name="start">Start</string>
 </resources>

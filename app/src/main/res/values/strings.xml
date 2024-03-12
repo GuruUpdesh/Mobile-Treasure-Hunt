@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Assignment 6</string>
+    <string name="permissions_page">Permission Page</string>
+    <string name="start_page">Start Page</string>
+    <string name="clue_page">Clue Page</string>
+    <string name="clue_solved_page">Clue Solved</string>
+    <string name="treasure_hunt_completed_page">Treasure Hunt Completed</string>
+    <string name="back_button">Navigate Back</string>
+</resources>

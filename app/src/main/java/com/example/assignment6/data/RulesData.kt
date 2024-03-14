@@ -1,3 +1,8 @@
+/* Assignment 6: Mobile Treasure Hunt
+    Guru Updesh Singh / singguru@oregonstate.edu
+    CS 492 / Oregon State University
+*/
+
 package com.example.assignment6.data
 
 import androidx.compose.runtime.Composable

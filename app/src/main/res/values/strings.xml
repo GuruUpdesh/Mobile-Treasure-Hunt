@@ -5,7 +5,7 @@
     <string name="clue_page">Clue Page</string>
     <string name="clue_solved_page">Clue Solved</string>
     <string name="treasure_hunt_completed_page">Treasure Hunt Completed</string>
-    <string name="back_button">Navigate Back</string>
+    <string name="quit_button">Quit</string>
     <string name="permission">Mobile Treasure Hunt requires location permissions to find clues and treasures.</string>
     <string name="grant_permissions">Grant Permissions</string>
     <string name="rules_pre">Discover hidden treasures in the real world by solving clues left by the mysterious guide.</string>
@@ -19,6 +19,21 @@
     <string name="rule_8">8. Quitting the Hunt:The Quit button will take you back to the Start Page.</string>
     <string name="rule_9">9. Claim Your Treasure: Solve all clues to uncover the treasure. The final page will congratulate you on your accomplishment and reveal the total time taken on your adventure.</string>
     <string name="rule_10">10. Play Fair and Have Fun: This is a game of exploration and discovery. Enjoy the journey, learn about each location, and most importantly, have fun!</string>
-
+    <string name="clue_1_textual">Where minds grow and imaginations soar, find the place with doors open to explore. Between the covers, adventures are spun, seek where your journey has just begun.</string>
+    <string name="clue_1_hint">Look for the haven of stories and tales, where knowledge is vast and discovery never fails.</string>
+    <string name="clue_2_textual">Rise above the valley, where the air is clear and your eyes can see far. Follow the trail where nature’s beauty is unrivaled, and find the peak that towers like a sentinel over Eugene.</string>
+    <string name="clue_2_hint">Seek the highest point in the city, where hikers conquer the trail for the breathtaking view at the base.</string>
+    <string name="library_info">The Eugene Public Library, a cornerstone of the community since its founding, offers a sanctuary of knowledge and a wealth of resources for residents and visitors alike. With its doors first opening in the early 20th century, it has grown to become a modern hub for learning, creativity, and public programs designed to enlighten and inspire minds of all ages.</string>
+    <string name="butte_info">Spencer Butte, known as the guardian peak of Eugene, offers panoramic views of the Willamette Valley and the Cascade Mountains. A favorite destination for hikers and nature enthusiasts, the butte has trails which wind through lush forests leading to its summit at 2,058 feet. This natural landmark has been a gathering spot and lookout for local Native American tribes long before Eugene was founded, embodying the spirit and beauty of the Oregon landscape.</string>
     <string name="start">Start</string>
+    <string name="show_hint">Show Hint</string>
+    <string name="found_it">Found It!</string>
+    <string name="solved">Congrats you solved a clue!</string>
+    <string name="complete">You found the treasure!</string>
+    <string name="continue_button">Continue</string>
+    <string name="home_button">Home</string>
+    <string name="total_time">Time to Find</string>
+    <string name="try_again">Try Again</string>
+    <string name="not_right">You are not at the right location. Keep searching!</string>
+    <string name="ok">OK</string>
 </resources>
